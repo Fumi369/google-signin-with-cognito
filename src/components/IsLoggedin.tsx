@@ -13,9 +13,18 @@ export default function isLoggedIn() {
       {session.user ? (
         <div>
           ログイン済みです。
-          <p>Email: {session.user.email}</p>
-          <p>Name：{session.user.name}</p>
-          {session.user.image && <img src={session.user.image} alt="" />}
+          <p>ID：{session.user.id}</p>
+          <p>ユーザー名：{session.user?.name}</p>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <span>アイコン：</span>
+            {session.user?.image && (
+              <img
+                src={session.user?.image}
+                alt=""
+                style={{ marginLeft: "8px" }}
+              />
+            )}
+          </div>
         </div>
       ) : (
         "読み込み中..."

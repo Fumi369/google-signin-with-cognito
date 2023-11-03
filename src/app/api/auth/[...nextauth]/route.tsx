@@ -13,13 +13,13 @@ const handler = NextAuth({
   ],
   callbacks: {
     session: async ({ session, token, ...other }) => {
-      console.log("token:", token);
-
       return {
         ...session,
         user: {
           id: token.sub,
           name: token.name,
+          email: token.email,
+          image: token.picture,
         },
       };
     },
